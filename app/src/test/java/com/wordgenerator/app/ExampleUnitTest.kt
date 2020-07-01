@@ -1,4 +1,4 @@
-package com.bacipeesh.app
+package com.wordgenerator.app
 
 import org.junit.Test
 
