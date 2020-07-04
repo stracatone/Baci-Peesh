@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/actionRead"
-        android:name="com.wordgenerator.app.ui.ReadFragment"
+        android:name="com.wordgenerator.app.view.ReadFragment"
         android:label="ReadFragment"
         tools:layout="@layout/fragment_read" />
     <fragment
         android:id="@+id/actionAdd"
-        android:name="com.wordgenerator.app.ui.AddWordFragment"
+        android:name="com.wordgenerator.app.view.AddWordFragment"
         android:label="AddWordFragment"
         tools:layout="@layout/fragment_write" />
 </navigation>

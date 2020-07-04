@@ -1,4 +1,4 @@
-package com.wordgenerator.app.ui
+package com.wordgenerator.app.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

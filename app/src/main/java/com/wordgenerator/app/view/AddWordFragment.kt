@@ -1,4 +1,4 @@
-package com.wordgenerator.app.ui
+package com.wordgenerator.app.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
