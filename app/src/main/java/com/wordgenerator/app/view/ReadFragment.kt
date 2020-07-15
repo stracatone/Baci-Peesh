@@ -22,7 +22,9 @@ class ReadFragment : Fragment(), ReadWordContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Paper.init(context)
+        // init presenter
+        val repo = WordsRepository(Paper.book())
+        readWordPresenter = ReadWordPresenter(this, repo, resources)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,9 +34,7 @@ class ReadFragment : Fragment(), ReadWordContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // init presenter
-        val repo = WordsRepository(Paper.book())
-        readWordPresenter = ReadWordPresenter(this, repo)
+
         readWordPresenter?.getRandomWord()
     }
 }
