@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.wordgenerator.app.AddWordContract
 import com.wordgenerator.app.R
-import com.wordgenerator.app.WordsRepository
 import com.wordgenerator.app.presenter.AddWordPresenter
-import io.paperdb.Paper
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_write.*
+import javax.inject.Inject
 
-class AddWordFragment : Fragment(), AddWordContract.View {
+class AddWordFragment : DaggerFragment(), AddWordContract.View {
 
-    private var addWordPresenter: AddWordPresenter? = null
+    @Inject
+    lateinit var addWordPresenter: AddWordPresenter
 
     override fun showErrorMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT)
@@ -37,12 +37,9 @@ class AddWordFragment : Fragment(), AddWordContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val repo = WordsRepository(Paper.book())
-        addWordPresenter = AddWordPresenter(this, repo, resources)
-
         btnConfirm?.setOnClickListener {
-            addWordPresenter?.saveWord(etAddWord.text?.run { if (this.isNotEmpty()) this.toString() else "" },
-                                       etAddTranslation?.text?.run { if (this.isNotEmpty()) this.toString() else "" })
+            addWordPresenter.saveWord(etAddWord.text?.run { if (this.isNotEmpty()) this.toString() else "" },
+                                      etAddTranslation?.text?.run { if (this.isNotEmpty()) this.toString() else "" })
         }
     }
 }

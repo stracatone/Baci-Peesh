@@ -6,9 +6,10 @@ import com.wordgenerator.app.AddWordContract
 import com.wordgenerator.app.R
 import com.wordgenerator.app.WordsRepository
 import com.wordgenerator.app.model.Word
+import javax.inject.Inject
 
-class AddWordPresenter(private val addWordView: AddWordContract.View, private val repository: WordsRepository, private val resources: Resources) :
-        AddWordContract.Presenter {
+class AddWordPresenter @Inject constructor(private val addWordView: AddWordContract.View, private val repository: WordsRepository,
+                                           private val resources: Resources) : AddWordContract.Presenter {
 
     override fun saveWord(word: String?, translation: String?) {
         if (word.isNullOrEmpty()) {

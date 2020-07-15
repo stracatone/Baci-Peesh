@@ -5,9 +5,10 @@ import android.util.Log
 import com.wordgenerator.app.R
 import com.wordgenerator.app.ReadWordContract
 import com.wordgenerator.app.WordsRepository
+import javax.inject.Inject
 
-class ReadWordPresenter(private val readWordView: ReadWordContract.View, private val repository: WordsRepository, private val resources: Resources) :
-        ReadWordContract.Presenter {
+class ReadWordPresenter @Inject constructor(private val readWordView: ReadWordContract.View, private val repository: WordsRepository,
+                                            private val resources: Resources) : ReadWordContract.Presenter {
 
     override fun getRandomWord() {
         val word = repository.getRandomWord()

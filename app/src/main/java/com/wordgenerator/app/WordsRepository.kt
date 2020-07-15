@@ -3,8 +3,9 @@ package com.wordgenerator.app
 import com.wordgenerator.app.model.Word
 import com.wordgenerator.app.util.Constants
 import io.paperdb.Book
+import javax.inject.Inject
 
-class WordsRepository(private val db: Book?) {
+class WordsRepository @Inject constructor(private val db: Book?) {
 
     var word: Word? = null
 

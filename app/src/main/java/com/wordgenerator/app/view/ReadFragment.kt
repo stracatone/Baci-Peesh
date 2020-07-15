@@ -4,27 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.wordgenerator.app.R
 import com.wordgenerator.app.ReadWordContract
-import com.wordgenerator.app.WordsRepository
 import com.wordgenerator.app.presenter.ReadWordPresenter
-import io.paperdb.Paper
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.card_back.*
+import javax.inject.Inject
 
-class ReadFragment : Fragment(), ReadWordContract.View {
+class ReadFragment : DaggerFragment(), ReadWordContract.View {
 
-    private var readWordPresenter: ReadWordPresenter? = null
+    @Inject
+    lateinit var readWordPresenter: ReadWordPresenter
 
     override fun showTodayWord(word: String) {
         tvWord.text = word
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // init presenter
-        val repo = WordsRepository(Paper.book())
-        readWordPresenter = ReadWordPresenter(this, repo, resources)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,6 +28,6 @@ class ReadFragment : Fragment(), ReadWordContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        readWordPresenter?.getRandomWord()
+        readWordPresenter.getRandomWord()
     }
 }
