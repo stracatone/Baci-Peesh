@@ -1,6 +1,6 @@
 package com.wordgenerator.app.di
 
-import com.wordgenerator.app.WordsRepository
+import com.wordgenerator.app.data.WordsRepository
 import dagger.Module
 import dagger.Provides
 import io.paperdb.Book

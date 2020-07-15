@@ -1,4 +1,4 @@
-package com.wordgenerator.app
+package com.wordgenerator.app.contracts
 
 interface AddWordContract {
 

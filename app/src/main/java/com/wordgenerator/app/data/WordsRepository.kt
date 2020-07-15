@@ -1,4 +1,4 @@
-package com.wordgenerator.app
+package com.wordgenerator.app.data
 
 import com.wordgenerator.app.model.Word
 import com.wordgenerator.app.util.Constants

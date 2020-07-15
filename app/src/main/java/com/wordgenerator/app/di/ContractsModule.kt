@@ -1,7 +1,7 @@
 package com.wordgenerator.app.di
 
-import com.wordgenerator.app.AddWordContract
-import com.wordgenerator.app.ReadWordContract
+import com.wordgenerator.app.contracts.AddWordContract
+import com.wordgenerator.app.contracts.ReadWordContract
 import com.wordgenerator.app.view.AddWordFragment
 import com.wordgenerator.app.view.ReadFragment
 import dagger.Binds

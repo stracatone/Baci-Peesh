@@ -2,9 +2,9 @@ package com.wordgenerator.app.presenter
 
 import android.content.res.Resources
 import android.util.Log
-import com.wordgenerator.app.AddWordContract
+import com.wordgenerator.app.contracts.AddWordContract
 import com.wordgenerator.app.R
-import com.wordgenerator.app.WordsRepository
+import com.wordgenerator.app.data.WordsRepository
 import com.wordgenerator.app.model.Word
 import javax.inject.Inject
 

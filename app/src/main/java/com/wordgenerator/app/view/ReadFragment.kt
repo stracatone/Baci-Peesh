@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.wordgenerator.app.R
-import com.wordgenerator.app.ReadWordContract
+import com.wordgenerator.app.contracts.ReadWordContract
 import com.wordgenerator.app.presenter.ReadWordPresenter
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.card_back.*

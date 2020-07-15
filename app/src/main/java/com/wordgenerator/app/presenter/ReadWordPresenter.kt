@@ -3,8 +3,8 @@ package com.wordgenerator.app.presenter
 import android.content.res.Resources
 import android.util.Log
 import com.wordgenerator.app.R
-import com.wordgenerator.app.ReadWordContract
-import com.wordgenerator.app.WordsRepository
+import com.wordgenerator.app.contracts.ReadWordContract
+import com.wordgenerator.app.data.WordsRepository
 import javax.inject.Inject
 
 class ReadWordPresenter @Inject constructor(private val readWordView: ReadWordContract.View, private val repository: WordsRepository,
