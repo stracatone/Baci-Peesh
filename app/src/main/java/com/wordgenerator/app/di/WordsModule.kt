@@ -1,6 +1,7 @@
 package com.wordgenerator.app.di
 
 import com.wordgenerator.app.data.WordsRepository
+import com.wordgenerator.app.dummy.WordsRecyclerViewAdapter
 import dagger.Module
 import dagger.Provides
 import io.paperdb.Book
@@ -19,5 +20,10 @@ class WordsModule {
     @Provides
     fun provideWordsRepo(book: Book): WordsRepository {
         return WordsRepository(book)
+    }
+
+    @Provides
+    fun provideWordsAdapter(): WordsRecyclerViewAdapter {
+        return WordsRecyclerViewAdapter(emptyList())
     }
 }

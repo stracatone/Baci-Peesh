@@ -8,16 +8,16 @@ import com.wordgenerator.app.data.WordsRepository
 import com.wordgenerator.app.model.Word
 import javax.inject.Inject
 
-class AddWordPresenter @Inject constructor(private val addWordView: AddWordContract.View, private val repository: WordsRepository,
+class AddWordPresenter @Inject constructor(private val view: AddWordContract.View, private val repository: WordsRepository,
                                            private val resources: Resources) : AddWordContract.Presenter {
 
     override fun saveWord(word: String?, translation: String?) {
         if (word.isNullOrEmpty()) {
-            addWordView.showErrorMessage(resources.getString(R.string.word_missing_error))
+            view.showErrorMessage(resources.getString(R.string.word_missing_error))
             return
         }
         if (translation.isNullOrEmpty()) {
-            addWordView.showErrorMessage(resources.getString(R.string.translation_missing_error))
+            view.showErrorMessage(resources.getString(R.string.translation_missing_error))
             return
         }
         // save new word to database
@@ -25,6 +25,6 @@ class AddWordPresenter @Inject constructor(private val addWordView: AddWordContr
         repository.saveWord(newWord)
                 .also { Log.d("Read", "Value: ${newWord.toString()}") }
         // inform user
-        addWordView.showSuccessMessage(resources.getString(R.string.translation_saved_message))
+        view.showSuccessMessage(resources.getString(R.string.translation_saved_message))
     }
 }

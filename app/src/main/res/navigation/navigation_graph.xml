@@ -15,4 +15,9 @@
         android:name="com.wordgenerator.app.view.AddWordFragment"
         android:label="AddWordFragment"
         tools:layout="@layout/fragment_write" />
+    <fragment
+        android:id="@+id/actionList"
+        android:name="com.wordgenerator.app.view.ListWordsFragment"
+        android:label="fragment_words_list_list"
+        tools:layout="@layout/fragment_words_list" />
 </navigation>
