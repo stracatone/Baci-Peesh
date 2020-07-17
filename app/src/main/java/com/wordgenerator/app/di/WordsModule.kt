@@ -1,7 +1,7 @@
 package com.wordgenerator.app.di
 
 import com.wordgenerator.app.data.WordsRepository
-import com.wordgenerator.app.dummy.WordsRecyclerViewAdapter
+import com.wordgenerator.app.adapters.WordsRecyclerViewAdapter
 import dagger.Module
 import dagger.Provides
 import io.paperdb.Book

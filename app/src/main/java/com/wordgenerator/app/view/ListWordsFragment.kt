@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.wordgenerator.app.R
 import com.wordgenerator.app.contracts.ListWordsContract
-import com.wordgenerator.app.dummy.WordsRecyclerViewAdapter
+import com.wordgenerator.app.adapters.WordsRecyclerViewAdapter
 import com.wordgenerator.app.model.Word
 import com.wordgenerator.app.presenter.ListWordsPresenter
 import dagger.android.support.DaggerFragment

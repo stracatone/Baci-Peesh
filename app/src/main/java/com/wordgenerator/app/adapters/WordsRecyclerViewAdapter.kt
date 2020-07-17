@@ -1,4 +1,4 @@
-package com.wordgenerator.app.dummy
+package com.wordgenerator.app.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.wordgenerator.app.R
-import com.wordgenerator.app.dummy.DummyContent.DummyItem
 import com.wordgenerator.app.model.Word
 
 /**
- * [RecyclerView.Adapter] that can display a [DummyItem].
+ * [RecyclerView.Adapter] that can display a data.
  * TODO: Replace the implementation with code for your data type.
  */
 class WordsRecyclerViewAdapter(private var values: List<Word>) : RecyclerView.Adapter<WordsRecyclerViewAdapter.ViewHolder>() {
