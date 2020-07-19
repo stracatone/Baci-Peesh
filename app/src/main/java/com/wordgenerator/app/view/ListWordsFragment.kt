@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.wordgenerator.app.R
-import com.wordgenerator.app.contracts.ListWordsContract
 import com.wordgenerator.app.adapters.WordsRecyclerViewAdapter
+import com.wordgenerator.app.contracts.ListWordsContract
 import com.wordgenerator.app.model.Word
 import com.wordgenerator.app.presenter.ListWordsPresenter
 import dagger.android.support.DaggerFragment
@@ -53,5 +53,12 @@ class ListWordsFragment : DaggerFragment(), ListWordsContract.View {
     override fun onResume() {
         super.onResume()
         presenter.getWordsToShow()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (!adapter.values.isNullOrEmpty()) {
+            presenter.saveData(adapter.values)
+        }
     }
 }

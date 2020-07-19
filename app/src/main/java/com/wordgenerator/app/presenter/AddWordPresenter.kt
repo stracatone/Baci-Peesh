@@ -21,7 +21,7 @@ class AddWordPresenter @Inject constructor(private val view: AddWordContract.Vie
             return
         }
         // save new word to database
-        val newWord = Word(word, translation)
+        val newWord = Word(word, translation, true)
         repository.saveWord(newWord)
                 .also { Log.d("Read", "Value: ${newWord.toString()}") }
         // inform user

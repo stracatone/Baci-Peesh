@@ -24,4 +24,8 @@ class WordsRepository @Inject constructor(private val db: Book?) {
         allWords?.add(word)
         db?.write(Constants.TRANSLATIONS_FILE, allWords)
     }
+
+    fun updateList(data: List<Word>) {
+        db?.write(Constants.TRANSLATIONS_FILE, data)
+    }
 }
