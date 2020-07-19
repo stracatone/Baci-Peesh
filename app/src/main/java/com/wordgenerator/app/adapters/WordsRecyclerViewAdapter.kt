@@ -11,6 +11,8 @@ import com.wordgenerator.app.model.Word
 
 class WordsRecyclerViewAdapter(var values: List<Word>) : RecyclerView.Adapter<WordsRecyclerViewAdapter.ViewHolder>() {
 
+    var navigationListener: ((position: Int) -> Unit)? = null
+
     fun setData(values: List<Word>) {
         this.values = values
         notifyDataSetChanged()
@@ -25,7 +27,9 @@ class WordsRecyclerViewAdapter(var values: List<Word>) : RecyclerView.Adapter<Wo
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val word = values[position]
         holder.tvWord.text = word.name
+        holder.tvWord.setOnClickListener { navigationListener?.invoke(position) }
         holder.tvMeaning.text = word.meaning
+        holder.tvMeaning.setOnClickListener { navigationListener?.invoke(position) }
         holder.swEnabled.isChecked = word.enabled == true
         holder.swEnabled.setOnCheckedChangeListener { _, isChecked ->
             values[position].enabled = isChecked

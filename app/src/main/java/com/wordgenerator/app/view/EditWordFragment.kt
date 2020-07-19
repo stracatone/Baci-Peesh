@@ -5,17 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.wordgenerator.app.contracts.AddWordContract
 import com.wordgenerator.app.R
-import com.wordgenerator.app.presenter.AddWordPresenter
+import com.wordgenerator.app.contracts.EditWordContract
+import com.wordgenerator.app.model.Word
+import com.wordgenerator.app.presenter.EditWordPresenter
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_write.*
 import javax.inject.Inject
 
-class AddWordFragment : DaggerFragment(), AddWordContract.View {
+class EditWordFragment : DaggerFragment(), EditWordContract.View {
 
     @Inject
-    lateinit var presenter: AddWordPresenter
+    lateinit var presenter: EditWordPresenter
+
+    override fun showSelectedWord(word: Word?) {
+        etAddWord?.setText(word?.name ?: "")
+        etAddTranslation?.setText(word?.meaning ?: "")
+    }
 
     override fun showErrorMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT)
@@ -23,8 +29,7 @@ class AddWordFragment : DaggerFragment(), AddWordContract.View {
     }
 
     override fun showSuccessMessage(message: String) {
-        etAddWord?.text?.clear()
-        etAddTranslation?.text?.clear()
+        activity?.onBackPressed()
         Toast.makeText(activity, message, Toast.LENGTH_SHORT)
                 .show()
     }
@@ -37,9 +42,11 @@ class AddWordFragment : DaggerFragment(), AddWordContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        presenter.getSelectedWord()
+
         btnConfirm?.setOnClickListener {
             presenter.saveWord(etAddWord.text?.run { if (this.isNotEmpty()) this.toString() else "" },
-                                      etAddTranslation?.text?.run { if (this.isNotEmpty()) this.toString() else "" })
+                               etAddTranslation?.text?.run { if (this.isNotEmpty()) this.toString() else "" })
         }
     }
 }

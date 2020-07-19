@@ -6,12 +6,13 @@
     <string name="tab_list">Words</string>
     <string name="word">Word:</string>
     <string name="save">Save</string>
-    <string name="add_new_word_here">Add new word here...</string>
-    <string name="add_translation_here">Add translation here...</string>
+    <string name="add_new_word_here">Add new word here…</string>
+    <string name="add_translation_here">Add translation here…</string>
 
     <string name="word_missing_error">Please add word!</string>
     <string name="translation_missing_error">Please add translation!</string>
     <string name="translation_saved_message">New word added! :)</string>
     <string name="empty_database_message">No words added yet!</string>
     <string name="add_new_words">Add new words :)</string>
+    <string name="translation_updated_message">Word updated! :)</string>
 </resources>

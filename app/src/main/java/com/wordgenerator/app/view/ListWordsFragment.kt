@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.wordgenerator.app.R
 import com.wordgenerator.app.adapters.WordsRecyclerViewAdapter
 import com.wordgenerator.app.contracts.ListWordsContract
@@ -40,6 +41,11 @@ class ListWordsFragment : DaggerFragment(), ListWordsContract.View {
         }
     }
 
+    override fun openDetails(position: Int) {
+        presenter.setSelected(position)
+        findNavController().navigate(R.id.actionGoToEditWord)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_words_list, container, false)
     }
@@ -48,6 +54,8 @@ class ListWordsFragment : DaggerFragment(), ListWordsContract.View {
         super.onViewCreated(view, savedInstanceState)
         // set list
         rvWords?.adapter = adapter
+        // add details page listener
+        adapter.navigationListener = this::openDetails
     }
 
     override fun onResume() {

@@ -15,4 +15,8 @@ class ListWordsPresenter @Inject constructor(private val view: ListWordsContract
     override fun saveData(data: List<Word>) {
         repository.updateList(data)
     }
+
+    override fun setSelected(position: Int) {
+        repository.setSelectedPosition(position)
+    }
 }

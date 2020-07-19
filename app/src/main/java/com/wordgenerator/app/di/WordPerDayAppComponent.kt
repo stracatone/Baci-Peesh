@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-        modules = [AndroidSupportInjectionModule::class, ApplicationModule::class, MainActivityModule::class, AddWordFragmentModule::class, ReadFragmentModule::class, ListWordsFragmentModule::class, WordsModule::class])
+        modules = [AndroidSupportInjectionModule::class, ApplicationModule::class, MainActivityModule::class, AddWordFragmentModule::class, ReadFragmentModule::class, ListWordsFragmentModule::class, EditWordFragmentModule::class, WordsModule::class])
 interface WordPerDayAppComponent : AndroidInjector<WordPerDayApplication> {
 
     @Component.Builder
