@@ -18,7 +18,7 @@ class WordsRepository @Inject constructor(private val db: Book?) {
     }
 
     fun getRandomWord(): Word? {
-        val allWords = getAllWords()
+        val allWords = getAllWords()?.filter { it.enabled == true }
         word = if (word == null && allWords?.isNotEmpty() == true) allWords.random() else word
         return word
     }
