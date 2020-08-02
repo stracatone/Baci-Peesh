@@ -1,5 +1,6 @@
 package com.wordgenerator.app
 
+import com.google.android.gms.ads.MobileAds
 import com.wordgenerator.app.di.ApplicationModule
 import com.wordgenerator.app.di.DaggerWordPerDayAppComponent
 import dagger.android.AndroidInjector
@@ -13,6 +14,8 @@ class WordPerDayApplication : DaggerApplication(), HasAndroidInjector {
         super.onCreate()
         // init database
         Paper.init(applicationContext)
+        // google ad mob
+        MobileAds.initialize(this) {}
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> = DaggerWordPerDayAppComponent.builder()

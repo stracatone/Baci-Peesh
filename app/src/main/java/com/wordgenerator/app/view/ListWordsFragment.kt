@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.wordgenerator.app.R
 import com.wordgenerator.app.adapters.WordsRecyclerViewAdapter
 import com.wordgenerator.app.contracts.ListWordsContract
@@ -56,6 +59,36 @@ class ListWordsFragment : DaggerFragment(), ListWordsContract.View {
         rvWords?.adapter = adapter
         // add details page listener
         adapter.navigationListener = this::openDetails
+        // ads
+        val interstitialAd = InterstitialAd(activity)
+        interstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        interstitialAd.loadAd(AdRequest.Builder()
+                                      .build())
+        interstitialAd.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                interstitialAd.show()
+            }
+
+            override fun onAdFailedToLoad(errorCode: Int) {
+                // do nothing
+            }
+
+            override fun onAdOpened() {
+                // do nothing
+            }
+
+            override fun onAdClicked() {
+                // do nothing
+            }
+
+            override fun onAdLeftApplication() {
+                // do nothing
+            }
+
+            override fun onAdClosed() {
+                // do nothing
+            }
+        }
     }
 
     override fun onResume() {

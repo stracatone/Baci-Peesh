@@ -4,7 +4,7 @@
     <string name="tab_read">Read</string>
     <string name="tab_write">Add word</string>
     <string name="tab_list">Words</string>
-    <string name="word">Word:</string>
+    <string name="word">See today\'s word:</string>
     <string name="save">Save</string>
     <string name="add_new_word_here">Add new word here…</string>
     <string name="add_translation_here">Add translation here…</string>
