@@ -22,6 +22,8 @@ import javax.inject.Inject
  */
 class ListWordsFragment : DaggerFragment(), ListWordsContract.View {
 
+    private var interstitialAd: InterstitialAd? = null
+
     @Inject
     lateinit var presenter: ListWordsPresenter
 
@@ -49,6 +51,13 @@ class ListWordsFragment : DaggerFragment(), ListWordsContract.View {
         findNavController().navigate(R.id.actionGoToEditWord)
     }
 
+    override fun shouldShowAdd(shouldShowAdd: Boolean) {
+        if (shouldShowAdd) {
+            interstitialAd?.show()
+            presenter.saveAddStatus()
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_words_list, container, false)
     }
@@ -60,13 +69,13 @@ class ListWordsFragment : DaggerFragment(), ListWordsContract.View {
         // add details page listener
         adapter.navigationListener = this::openDetails
         // ads
-        val interstitialAd = InterstitialAd(activity)
-        interstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
-        interstitialAd.loadAd(AdRequest.Builder()
+        interstitialAd = InterstitialAd(activity)
+        interstitialAd?.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        interstitialAd?.loadAd(AdRequest.Builder()
                                       .build())
-        interstitialAd.adListener = object : AdListener() {
+        interstitialAd?.adListener = object : AdListener() {
             override fun onAdLoaded() {
-                interstitialAd.show()
+                presenter.checkAddStatus()
             }
 
             override fun onAdFailedToLoad(errorCode: Int) {

@@ -10,6 +10,9 @@ interface ListWordsContract {
 
         // open edit word screen
         fun openDetails(position: Int)
+
+        // should add be displayed
+        fun shouldShowAdd(shouldShowAdd: Boolean)
     }
 
     interface Presenter {
@@ -21,5 +24,11 @@ interface ListWordsContract {
 
         // set selection
         fun setSelected(position: Int)
+
+        // check if add should be displayed
+        fun checkAddStatus()
+
+        // save that add has been shown
+        fun saveAddStatus()
     }
 }
