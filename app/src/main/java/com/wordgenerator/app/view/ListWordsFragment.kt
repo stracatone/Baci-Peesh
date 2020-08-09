@@ -70,7 +70,7 @@ class ListWordsFragment : DaggerFragment(), ListWordsContract.View {
         adapter.navigationListener = this::openDetails
         // ads
         interstitialAd = InterstitialAd(activity)
-        interstitialAd?.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        interstitialAd?.adUnitId = getString(R.string.interstitial)
         interstitialAd?.loadAd(AdRequest.Builder()
                                       .build())
         interstitialAd?.adListener = object : AdListener() {
