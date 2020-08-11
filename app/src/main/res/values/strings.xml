@@ -1,6 +1,23 @@
 <resources>
     <string name="app_name">Word per day</string>
 
-    <string name="tab_read">"Read"</string>
-    <string name="tab_write">"Add word"</string>
+    <string name="tab_read">Read</string>
+    <string name="tab_write">Add word</string>
+    <string name="tab_list">Words</string>
+    <string name="word">See today\'s word:</string>
+    <string name="save">Save</string>
+    <string name="add_new_word_here">Add new word here…</string>
+    <string name="add_translation_here">Add translation here…</string>
+
+    <string name="word_missing_error">Please add word!</string>
+    <string name="translation_missing_error">Please add translation!</string>
+    <string name="translation_saved_message">New word added! :)</string>
+    <string name="empty_database_message">No words added yet!</string>
+    <string name="add_new_words">Add new words :)</string>
+    <string name="translation_updated_message">Word updated! :)</string>
+
+    <!-- Ads   -->
+    <string name="banner">ca-app-pub-3650122699658586/9653882838</string>
+    <string name="banner2">ca-app-pub-3650122699658586/6741613185</string>
+    <string name="interstitial">ca-app-pub-3650122699658586/2863568619</string>
 </resources>

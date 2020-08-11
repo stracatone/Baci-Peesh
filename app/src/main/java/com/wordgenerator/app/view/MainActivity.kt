@@ -1,7 +1,7 @@
-package com.wordgenerator.app.ui
+package com.wordgenerator.app.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.wordgenerator.app.R

@@ -7,12 +7,28 @@
 
     <fragment
         android:id="@+id/actionRead"
-        android:name="com.wordgenerator.app.ui.ReadFragment"
+        android:name="com.wordgenerator.app.view.ReadFragment"
         android:label="ReadFragment"
         tools:layout="@layout/fragment_read" />
     <fragment
         android:id="@+id/actionAdd"
-        android:name="com.wordgenerator.app.ui.AddWordFragment"
+        android:name="com.wordgenerator.app.view.AddWordFragment"
         android:label="AddWordFragment"
         tools:layout="@layout/fragment_write" />
+    <fragment
+        android:id="@+id/actionList"
+        android:name="com.wordgenerator.app.view.ListWordsFragment"
+        android:label="fragment_words_list_list"
+        tools:layout="@layout/fragment_words_list" >
+        <action
+            android:id="@+id/actionGoToEditWord"
+            app:destination="@id/editWordFragment"
+            app:popEnterAnim="@animator/animation_vertical_flip_in"
+            app:popExitAnim="@animator/animation_vertical_flip_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/editWordFragment"
+        android:name="com.wordgenerator.app.view.EditWordFragment"
+        android:label="EditWordFragment"
+        tools:layout="@layout/fragment_write"/>
 </navigation>

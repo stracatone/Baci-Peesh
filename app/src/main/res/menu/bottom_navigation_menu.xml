@@ -8,4 +8,8 @@
         android:id="@+id/actionAdd"
         android:icon="@drawable/ic_add"
         android:title="@string/tab_write" />
+    <item
+        android:id="@+id/actionList"
+        android:icon="@drawable/ic_waves"
+        android:title="@string/tab_list" />
 </menu>

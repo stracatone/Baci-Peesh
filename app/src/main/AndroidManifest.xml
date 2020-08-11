@@ -3,19 +3,23 @@
     package="com.wordgenerator.app">
 
     <application
+        android:name=".WordPerDayApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.wordgenerator.app.ui.MainActivity">
+        <activity android:name="com.wordgenerator.app.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3650122699658586~4728132861"/>
     </application>
 
 </manifest>
